@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skala Gempa</title>
+</head>
+<body>
+  <table align="center" border="1" cellspacing="0" cellpadding="5">
+    <thead bgcolor="yellow">
+      <tr>
+        <th>Lokasi</th>
+        <th>Skala</th>
+        <th>Dampak</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+        
+        // Definisi kelas Gempa
+        class Gempa
+        // Konstruktor dengan dua parameter: lokasi dan skala
+        {
+          constructor(lokasi, skala) 
+          {
+            this.lokasi = lokasi; // Variabel untuk menyimpan lokasi gempa
+            this.skala = skala; // Variabel untuk menyimpan skala gempa
+          }
+
+          // Metode untuk menentukan status gempa berdasarkan skala
+          statusGempa() 
+          {
+            let dampak = "";
+            if (this.skala < 2) 
+            {
+              dampak = "Tidak terasa";
+            } 
+            else if (this.skala >= 2 && this.skala < 4) 
+            {
+              dampak = "Rumah Retak retak";
+            } 
+            else if (this.skala >= 4 && this.skala <= 6) 
+            {
+              dampak = "Bangunan Roboh";
+            } 
+            else 
+            {
+              dampak = "Bangunan Roboh dan berpotensi Tsunami";
+            }
+
+            document.write(`<tr><td align="center">${this.lokasi}</td><td align="center">${this.skala}</td><td>${dampak}</td></tr>`);
+          }
+        }
+
+        // Membuat 8 objek dari kelas Gempa dengan berbagai lokasi dan skala yang berbeda
+        const gempa1 = new Gempa('Pluto', 1.5);
+        const gempa2 = new Gempa('Venus', 2);
+        const gempa3 = new Gempa('Pluto', 1.5);
+        const gempa4 = new Gempa('Venus', 2);
+        const gempa5 = new Gempa('Pluto', 4);
+        const gempa6 = new Gempa('Venus', 6.5);
+        const gempa7 = new Gempa('Pluto', 4);
+        const gempa8 = new Gempa('Venus', 6.5);
+
+        // Menggunakan metode statusGempa untuk masing-masing objek dan mencetak hasilnya
+        gempa1.statusGempa();
+        gempa2.statusGempa();
+        gempa3.statusGempa();
+        gempa4.statusGempa();
+        gempa5.statusGempa();
+        gempa6.statusGempa();
+        gempa7.statusGempa();
+        gempa8.statusGempa();
+
+      </script>
+    </tbody>
+  </table>
+</body>
+</html>
